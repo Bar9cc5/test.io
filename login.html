@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="text-color"><H1>Meiltton Group</H1></div>
+            <h1>Вход</h1>
+            <form id="loginForm">
+                <div class="textbox">
+                    <input type="text" id="username" placeholder="Введите логин:" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" id="password" placeholder="Введите пароль:" required>
+                </div>
+                <button type="submit" class="btn">Войти</button>
+                <p class="register-text">У вас нет аккаунта? <a href="register.html" target="_blank">Зарегистрируйтесь</a></p>
+            </form>
+            <div id="error-message" style="color: red;"></div> <!-- Для отображения ошибок -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Отправка данных через AJAX
+            fetch('http://localhost:3000/login', { // Убедитесь, что адрес соответствует вашему серверу
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка входа');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Сохраните токен в локальном хранилище или куки
+                localStorage.setItem('token', data.token);
+                window.location.href = 'index.html'; // Перенаправление при успешном входе
+            })
+            .catch(error => {
+                document.getElementById('error-message').innerText = error.message; // Отображение ошибки
+            });
+        });
+       
+    </script>
+</body>
+</html>

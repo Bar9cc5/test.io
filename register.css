@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: url('1s.jpg') no-repeat center center fixed; /* Фон с изображением */
+    background-image: 100%; /* Масштабирование изображения для заполнения экрана */
+    background-size: cover; /* Масштабирование изображения для заполнения экрана */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-box {
+    background: rgba(255, 255, 255, 0.87); /* Полупрозрачный белый фон */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .textbox {
+    margin-bottom: 20px;
+  }
+  
+  .textbox input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  }
+  
+  .textbox input:focus {
+    outline: none;
+    background-color: #ffffff;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #bd02ec;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #000000;
+  }
+  
+  .register-text {
+    text-align: center;
+  }
+
+  .cart {
+    border-right: 1px solid #bd00ceda;
+    padding-right: 10px;
+    height: 50px;
+}
+
+.text-color {
+    color: #bd00ceda
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
